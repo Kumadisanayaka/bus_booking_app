@@ -1,11 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Bus Booking app</title>
 </head>
+
 <body>
-    
+    <header>
+
+        <!--------------------Nav Bar----------------------------->
+
+        <nav class="nav-bar">
+            <h3 id="logo">BUSGO</h3>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Buses</a></li>
+                <li><a href="#">My Bookings</a></li>
+                <li><a href="#">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!----------------------------Main--------------------------------->
+    <main>
+        <!-------------------------Hero Section------------------------------>
+        <section class="hero">
+            <div class="heading-sec">
+                <h1>Travel Easy, Book Your Bus</h1>
+                <p>Find and book your bus journey quickly and easily.</p>
+            </div>
+
+            <!------------------------Search Box-------------------------->
+
+            <div class="search-box">
+
+                <div class="input-group">
+                    <label for="from">From</label>
+                    <input type="text" id="from" placeholder="Departure city">
+                </div>
+
+                <div class="input-group">
+                    <label for="to">To</label>
+                    <input type="text" id="to" placeholder="Destination city">
+                </div>
+
+                <div class="input-group">
+                    <label for="travel-date">Travel Date</label>
+                    <input type="date" id="travel-date">
+                </div>
+
+                <button id="search-btn">
+                    Search Bus
+                </button>
+
+            </div>
+        </section>
+    </main>
 </body>
+
 </html>
