@@ -82,3 +82,73 @@ button {
     color: #9CA3AF;
     font-size: 18px;
 }
+
+/*--------Search Box----------*/
+
+.search-box{
+    margin-top: 50px;
+    width: 100%;
+    max-width: 1000px;
+    background-color: #181B21;
+    padding: 25px;
+    border-radius: 15px;
+    display: flex;
+    align-items: end;
+    gap: 15px;
+    border: 1px solid #272A31;
+}
+
+.input-group{
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 8px;
+}
+
+.input-group label{
+    font-size: 13px;
+    color: #9CA3AF;
+}
+
+.input-group i{
+    color: #E63946;
+}
+
+.input-group input{
+    width: 100%;
+    padding: 13px 15px;
+    border-radius: 8px;
+    border: 1px solid #30343C;
+    background-color: #0F1115;
+    color: #F5F5F5;
+    outline: none;
+}
+
+.input-group input:focus{
+    border-color: #E63946;
+}
+
+#search-btn{
+    height: 45px;
+    padding: 0 25px;
+    border-radius: 8px;
+    background-color: #E63946;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s;
+}
+
+#search-btn:hover{
+    background-color: #B91C1C;
+    transform: translateY(-2px);
+}
+
+/*-------------------------Popular Routes CSS---------------------------*/
+
+
+
