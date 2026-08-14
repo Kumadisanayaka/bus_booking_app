@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bus Booking app</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 
 <body>
@@ -15,10 +16,10 @@
         <nav class="nav-bar">
             <h3 id="logo">BUSGO</h3>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Buses</a></li>
-                <li><a href="#">My Bookings</a></li>
-                <li><a href="#">Login</a></li>
+                <li><a href="#"><i class="fa-solid fa-house"></i>Home</a></li>
+                <li><a href="#"><i class="fa-solid fa-bus"></i>Buses</a></li>
+                <li><a href="#"><i class="fa-solid fa-ticket"></i>My Bookings</a></li>
+                <li><a href="#"><i class="fa-solid fa-right-to-bracket"></i>Login</a></li>
             </ul>
         </nav>
     </header>
@@ -36,27 +37,115 @@
             <div class="search-box">
 
                 <div class="input-group">
+                    <i class="fa-solid fa-location-dot"></i>
                     <label for="from">From</label>
                     <input type="text" id="from" placeholder="Departure city">
                 </div>
 
                 <div class="input-group">
+                    <i class="fa-solid fa-location-dot"></i>
                     <label for="to">To</label>
                     <input type="text" id="to" placeholder="Destination city">
                 </div>
 
                 <div class="input-group">
+                    <i class="fa-solid fa-calendar-days"></i>
                     <label for="travel-date">Travel Date</label>
                     <input type="date" id="travel-date">
                 </div>
 
                 <button id="search-btn">
+                    <i class="fa-solid fa-magnifying-glass"></i>
                     Search Bus
                 </button>
 
             </div>
         </section>
+
+        <!------------------------Popular-Routes---------------------------->
+
+        <section class="popular-routes">
+            <div class="section-heading">
+                <h2>Popular Routes</h2>
+                <p>Explore some of the most popular bus routes.</p>
+            </div>
+
+            <div class="route-container">
+
+                <div class="route-card">
+                    <h3>Colombo → Kandy</h3>
+                    <p>Comfortable buses available daily.</p>
+                    <button>view Buses</button>
+                </div>
+
+                <div class="route-card">
+                    <h3>Colombo → Galle</h3>
+                    <p>Travel from Colombo to Galle easily.</p>
+                    <button>view Buses</button>
+                </div>
+
+                <div class="route-card">
+                    <h3>Colombo → Jaffna</h3>
+                    <p>Book your long-distance journey.</p>
+                    <button>view Buses</button>
+                </div>
+
+            </div>
+        </section>
+
+        <!------------------------FEATURES-------------------------->
+
+        <section class="features">
+
+            <div class="section-heading">
+                <h2>Why Choose BUSGO?</h2>
+
+                <p>Everything you need for a simple and convenient bus booking experience.</p>
+            </div>
+
+            <div class="feature-container">
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-bus"></i>
+                    </div>
+
+                    <h3>Easy Booking</h3>
+                    <p>Search buses and book your seat in just a few steps.</p>
+                </div>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+
+                <h3>Secure Booking</h3>
+                <p>Your booking information is handled securely.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fa-solid fa-clock"></i>
+                </div>
+
+                <h3>Save Time</h3>
+                <p>Find your bus and reserve your seat quickly.</p>
+            </div>
+
+        </section>
+
     </main>
+
+    <!---------------------------Footer--------------------------------->
+
+    <footer>
+        <div class="footer-container">
+            <h3>BUSGO</h3>
+            <p>Your simple and reliable bus booking system.</p>
+            <p>© 2026 BUSGO. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 
 </html>
