@@ -16,7 +16,8 @@ const searchResult = document.getElementById("search-result");
 searchBtn.addEventListener("click", async ()=>{
     const from = fromInput.value.trim();
     const to = toInput.value.trim();
-    const date = travelDate.value.trim();
+    const dateTime = travelDate.value.trim();
+    const date = dateTime.split("T")[0].replaceAll("-", "/");
 
     const today = new Date();
     const todayDate = today.toISOString().split("T")[0];
@@ -59,17 +60,7 @@ searchBtn.addEventListener("click", async ()=>{
 
         const buses = await searchBus(from,to,date);
 
-        if (buses.length===0) {
-            searchResult.innerHTML = `
-            <p class="no-result">
-                No buses available for this route and date.
-            </p>
-            `;
-            return;
-        }
-
-        console.log("Available Buses : ",buses);
-        
+        displaySearchResults(buses);
         
     } catch (error) {
 
@@ -77,6 +68,21 @@ searchBtn.addEventListener("click", async ()=>{
         
     }
 });
+
+
+function displaySearchResults(buses) {
+    
+    if (buses.length===0) {
+            searchResult.innerHTML = `
+            <p class="no-result">
+                No buses available for this route and date.
+            </p>
+            `;
+            return;
+    }
+
+    console.log("Available Buses : ",buses);
+}
 
 async function testRoutes() {
     try {
