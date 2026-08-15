@@ -148,6 +148,12 @@ button {
     transform: translateY(-2px);
 }
 
+#search-error{
+    color: #E63946;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
 /*-------------------------Popular Routes & feature CSS---------------------------*/
 
 .popular-routes,
