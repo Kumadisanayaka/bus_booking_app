@@ -58,9 +58,19 @@ searchBtn.addEventListener("click", async ()=>{
 
     try {
 
-        const buses = await searchBus(from,to,date);
+        const routes = await getAvailableRoutes();
+ 
+        console.log("Available : ",routes);
+        
+        const normalizedDate = date.replaceAll("/", "-");
 
-        displaySearchResults(buses);
+        console.log(normalizedDate);
+        
+
+        const matchingRoute = findMatchingRoute(routes,from,to,date);
+
+        console.log("Matching Route: ",matchingRoute);
+        
         
     } catch (error) {
 
@@ -84,16 +94,33 @@ function displaySearchResults(buses) {
     console.log("Available Buses : ",buses);
 }
 
-async function testRoutes() {
-    try {
-        const routes = await getAvailableRoutes();
+// async function testRoutes() {
+//     try {
+//         const routes = await getAvailableRoutes();
 
-        console.log("Available Routes : ",routes);
+//         console.log("Available Routes : ",routes);
         
-    } catch (error) {
-        console.error("Failed to load routes : ",error);
+//     } catch (error) {
+//         console.error("Failed to load routes : ",error);
         
-    }
+//     }
+// }
+
+// testRoutes();
+
+function findMatchingRoute(routes,from,to,date) {
+
+    const normalizedDate = date.replaceAll("/", "-");
+    
+    return routes.find((route)=>{
+
+        const routeDate = route.scheduleDate.split("T")[0];
+
+        return(
+            route.fromLocationName.toLowerCase() === from.toLowerCase() && 
+            route.toLocationName.toLowerCase() === to.toLowerCase() &&
+            routeDate === date
+        );
+
+    });
 }
-
-testRoutes();
