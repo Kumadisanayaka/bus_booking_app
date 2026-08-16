@@ -67,9 +67,11 @@ searchBtn.addEventListener("click", async ()=>{
         console.log(normalizedDate);
         
 
-        const matchingRoute = findMatchingRoute(routes,from,to,date);
+        const matchingRoute = findMatchingRoute(routes,from,to,normalizedDate);
 
         console.log("Matching Route: ",matchingRoute);
+
+        displaySearchResult(matchingRoute);
         
         
     } catch (error) {
@@ -80,9 +82,9 @@ searchBtn.addEventListener("click", async ()=>{
 });
 
 
-function displaySearchResults(buses) {
+function displaySearchResult(route) {
     
-    if (buses.length===0) {
+    if (!route) {
             searchResult.innerHTML = `
             <p class="no-result">
                 No buses available for this route and date.
@@ -91,7 +93,27 @@ function displaySearchResults(buses) {
             return;
     }
 
-    console.log("Available Buses : ",buses);
+    searchResult.innerHTML = `
+                <div class="search-result-card">
+                    <h3>
+                        ${route.fromLocationName} → ${route.toLocationName}
+                    </h3>
+                    
+                    <p>
+                        <i class="fa-solid fa-calendar-days"></i>
+                        ${route.scheduleDate}
+                    </p>
+
+                    <p>
+                        <i class="fa-solid fa-bus"></i>
+                        ${route.busCount} Bus Available
+                    </p>
+
+                    <button>View Buses</button>
+                </div>
+    `;
+
+    //console.log("Available Buses : ",buses);
 }
 
 // async function testRoutes() {
@@ -111,11 +133,21 @@ function displaySearchResults(buses) {
 function findMatchingRoute(routes,from,to,date) {
 
     const normalizedDate = date.replaceAll("/", "-");
+
+    console.log("Search from : ",from);
+    console.log("Search to : ",to);
+    console.log("Date : ",date);
+    
+    
     
     return routes.find((route)=>{
 
         const routeDate = route.scheduleDate.split("T")[0];
 
+        console.log("API from : ",route.fromLocationName);
+        console.log("API to : ",route.toLocationName);
+        console.log("API Date : ",routeDate);
+        
         return(
             route.fromLocationName.toLowerCase() === from.toLowerCase() && 
             route.toLocationName.toLowerCase() === to.toLowerCase() &&
