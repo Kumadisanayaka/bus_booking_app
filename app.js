@@ -128,11 +128,47 @@ function displaySearchResult(route) {
                         ${route.busCount} Bus Available
                     </p>
 
-                    <button>View Buses</button>
+                   <button id="view-buses-btn">
+                        View Buses
+                    </button>
                 </div>
     `;
 
+    const viewBusesBtn = document.getElementById("view-buses-btn");
+
+    viewBusesBtn.addEventListener("click",()=>{
+        loadBuses(route);
+    })
+
     //console.log("Available Buses : ",buses);
+}
+
+//-----------------Load Buses----------------------//
+
+async function loadBuses(route) {
+    try {
+
+        const travelDate = route.scheduleDate.split("T")[0].replaceAll("-","/");
+
+         console.log("Searching buses for:", {
+            from: route.fromLocationName,
+            to: route.toLocationName,
+            date: travelDate
+        });
+
+        const buses = await searchBus(
+            route.fromLocationName,
+            route.toLocationName,
+            travelDate
+        );
+
+        console.log("Bus Data : ",buses);
+        
+        
+    } catch (error) {
+        console.error("Bus Search Failed : ",error);
+        
+    }
 }
 
 // async function testRoutes() {
