@@ -81,6 +81,23 @@ searchBtn.addEventListener("click", async ()=>{
     }
 });
 
+//------------------format Schedule Date---------------//
+
+function formatScheduleDate(dateTime) {
+    
+    const date = new Date(dateTime);
+
+     return date.toLocaleString("en-GB", {
+        day: "2-digit",
+        month: "short",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: true
+    });
+}
+
+//---------------Display Search Result---------------//
 
 function displaySearchResult(route) {
     
@@ -93,6 +110,8 @@ function displaySearchResult(route) {
             return;
     }
 
+    const schedule = formatScheduleDate(route.scheduleDate);
+
     searchResult.innerHTML = `
                 <div class="search-result-card">
                     <h3>
@@ -101,7 +120,7 @@ function displaySearchResult(route) {
                     
                     <p>
                         <i class="fa-solid fa-calendar-days"></i>
-                        ${route.scheduleDate}
+                        ${schedule}
                     </p>
 
                     <p>
@@ -130,6 +149,10 @@ function displaySearchResult(route) {
 
 // testRoutes();
 
+
+//--------------Find Matching Route--------------//
+
+
 function findMatchingRoute(routes,from,to,date) {
 
     const normalizedDate = date.replaceAll("/", "-");
@@ -156,3 +179,4 @@ function findMatchingRoute(routes,from,to,date) {
 
     });
 }
+
