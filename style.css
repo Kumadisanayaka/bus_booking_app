@@ -342,3 +342,139 @@ footer{
     }
 }
 
+
+/*------------------------Bus Page------------------------------*/
+
+.bus-search-summary{
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 70px 0 30px;
+    text-align: center;
+}
+
+.bus-search-summary h1{
+    font-size: 40px;
+}
+
+/*-------------------------Bus Result------------------------*/
+
+.bus-results{
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px 0 80px;
+}
+
+/*------------------------Bus List-------------------------*/
+
+#bus-list{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+/*--------------------------Bus Card--------------------------*/
+
+.bus-card{
+    background-color: #181B21;
+    border: 1px solid #272A31;
+    border-radius: 15px;
+    padding: 25px;
+    transition: 0.3s;
+}
+
+.bus-card:hover{
+    transform: translateY(-6px);
+    border-color: #E63946;
+}
+
+/*------------------------Bus Card Header--------------------------*/
+
+.bus-card-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.bus-card-header h3{
+    font-size: 21px;
+}
+
+.bus-card-header p{
+    margin-top: 8px;
+    color: #9CA3AF;
+}
+
+.bus-card-header i{
+    color: #E63946;
+    margin-right: 5px;
+}
+
+.bus-price{
+    color: #E63946;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/*----------------------------Bus Route-------------------------------*/
+
+.bus-route{
+    margin: 25px 0;
+    padding: 20px 0;
+    border-top: 1px solid #272A31;
+    border-bottom: 1px solid #272A31;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+
+}
+
+.bus-route div{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.bus-route span,
+.bus-time span{
+    color: #9CA3AF;
+    font-size: 13px;
+}
+
+.bus-route strong{
+    font-size: 16px;
+}
+
+.bus-route > i{
+    color: #E63946;
+}
+
+/*---------------------------Bus time------------------------------*/
+
+.bus-time {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.bus-time div{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+/*-------------------------------Bus Footer--------------------------*/
+
+.bus-card-footer{
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
+    color: #9CA3AF;
+}
