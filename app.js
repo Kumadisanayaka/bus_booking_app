@@ -128,16 +128,17 @@ function displaySearchResult(route) {
                         ${route.busCount} Bus Available
                     </p>
 
-                   <button id="view-buses-btn">
-                        View Buses
+                   <button id="select-route-btn">
+                        Select Route
                     </button>
                 </div>
     `;
 
-    const viewBusesBtn = document.getElementById("view-buses-btn");
+    const selectRouteBtn = document.getElementById("select-route-btn");
 
-    viewBusesBtn.addEventListener("click",()=>{
-        loadBuses(route);
+    selectRouteBtn.addEventListener("click",()=>{
+        displayBookingSelection(route);
+        
     })
 
     //console.log("Available Buses : ",buses);
@@ -216,3 +217,43 @@ function findMatchingRoute(routes,from,to,date) {
     });
 }
 
+//---------------Display Booking Selection--------------//
+
+function displayBookingSelection(route) {
+    const bookingSection = document.getElementById("booking-section");
+    const selectedRoute = document.getElementById("selected-route");
+
+    const schedule = formatScheduleDate(route.scheduleDate);
+
+    selectedRoute.innerHTML = `
+        <div class="selected-route-card">
+
+            <h3>
+                ${route.fromLocationName} → ${route.toLocationName}
+            </h3>
+
+            <div class="booking-info">
+
+                <p>
+                    <i class="fa-solid fa-calendar-days"></i>
+                    ${schedule}
+                </p>
+
+                <p>
+                    <i class="fa-solid fa-bus"></i>
+                    ${route.busCount} Bus Available
+                </p>
+
+            </div>
+
+            <button id="continue-booking-btn">
+                Continue
+            </button>
+
+        </div>
+    `;
+
+    bookingSection.scrollIntoView({
+        behavior: "smooth"
+    });
+}
