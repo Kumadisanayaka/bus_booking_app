@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Buses - BUSGO</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+    <header>
+        <nav class="nav-bar">
+            <h3 id="logo">BUSGO</h3>
+
+            <ul>
+                <li>
+                    <a href="/index.html">
+                        <i class="fa-solid fa-house"></i>
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-bus"></i>
+                        Buses
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-ticket"></i>
+                        My Bookings
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-right-to-bracket"></i>
+                        Login
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!----------------------------Search Summary----------------------------->
+
+        <section class="bus-search-summary">
+
+            <h1>Available Buses</h1>
+
+            <div id="search-summary"></div>
+
+        </section>
+
+        <!--------------------------Bus results--------------------------------->
+
+        <section class="bus-results">
+
+            <div class="section-heading">
+
+                <h2>Select Your Bus</h2>
+                <p>Choose a bus that suits your journey.</p>
+
+            </div>
+
+            <div id="bus-list">
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!---------------------------Footer--------------------------------->
+
+    <footer>
+        <div class="footer-container">
+            <h3>BUSGO</h3>
+            <p>Your simple and reliable bus booking system.</p>
+            <p>© 2026 BUSGO. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="/buses.js"></script>
+</body>
+
+</html>
