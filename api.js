@@ -34,3 +34,22 @@ export async function getAvailableRoutes() {
 
     return data;
 }
+
+//--------------Get Buses Schedules----------------//
+
+export async function getBusesSchedules() {
+
+    const url = `${BASE_URL}/BusBooking/GetBusSchedules`;
+
+    const response = await fetch(url);
+
+    if (!response.ok) {
+        throw new Error(`API Error : ${response.status}`);
+        
+    }
+
+    const data = await response.json();
+
+    return data;
+    
+}
