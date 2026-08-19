@@ -478,3 +478,32 @@ footer{
     flex-wrap: wrap;
     color: #9CA3AF;
 }
+
+.bus-card-footer i{
+    color: #E63946;
+    margin-right: 5px;
+}
+
+/*-------------------------Select Bus Button-----------------------------*/
+
+.select-bus-btn{
+    padding: 10px 18px;
+    border-radius: 8px;
+    background-color: #E63946;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.select-bus-btn:hover{
+    background-color: #B91C1C;
+    transform: translateY(-2px);
+}
+
+/*------------------Resposive Buses Page--------------------*/
+
+@media (max-width: 800px){
+    #bus-list{
+        grid-template-columns: 1fr;
+    }
+}

@@ -53,3 +53,6 @@ export async function getBusesSchedules() {
     return data;
     
 }
+
+//-------------Get Bus schedule by ID--------------//
+
