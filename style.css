@@ -507,3 +507,229 @@ footer{
         grid-template-columns: 1fr;
     }
 }
+
+/*----------------------------Booking page css----------------*/
+
+/*---------------- Booking Section ----------------*/
+
+.booking-section {
+    width: 90%;
+    max-width: 900px;
+    margin: auto;
+    padding: 80px 0 30px;
+}
+
+
+/*---------------- Selected Bus Card ----------------*/
+
+#selected-bus {
+    margin-top: 35px;
+}
+
+.selected-bus-card {
+    background-color: #181B21;
+    border: 1px solid #272A31;
+    border-radius: 15px;
+    padding: 30px;
+}
+
+.selected-bus-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.selected-bus-header h2 {
+    font-size: 25px;
+}
+
+.selected-bus-header p {
+    margin-top: 8px;
+    color: #9CA3AF;
+}
+
+.selected-bus-header i {
+    color: #E63946;
+    margin-right: 6px;
+}
+
+.selected-bus-price {
+    color: #E63946;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+
+/*---------------- Route ----------------*/
+
+.selected-route {
+    margin: 30px 0;
+    padding: 25px 0;
+
+    border-top: 1px solid #272A31;
+    border-bottom: 1px solid #272A31;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.selected-route div {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.selected-route span,
+.selected-bus-times span {
+    color: #9CA3AF;
+    font-size: 13px;
+}
+
+.selected-route strong {
+    font-size: 18px;
+}
+
+.selected-route > i {
+    color: #E63946;
+    font-size: 18px;
+}
+
+
+/*---------------- Times ----------------*/
+
+.selected-bus-times {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.selected-bus-times div {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+
+/*---------------- Bus Info ----------------*/
+
+.selected-bus-info {
+    margin-top: 25px;
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.selected-bus-info p {
+    color: #9CA3AF;
+}
+
+.selected-bus-info i {
+    color: #E63946;
+    margin-right: 7px;
+}
+
+
+/*---------------- Booking Buttons ----------------*/
+
+.booking-actions {
+    width: 90%;
+    max-width: 900px;
+    margin: 10px auto 80px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+
+/* Back Button */
+
+#back-btn {
+    padding: 12px 22px;
+
+    border-radius: 8px;
+
+    background-color: transparent;
+    border: 1px solid #30343C;
+
+    color: #9CA3AF;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    transition: 0.3s;
+}
+
+#back-btn:hover {
+    border-color: #E63946;
+    color: #E63946;
+    transform: translateY(-2px);
+}
+
+
+/* Continue Button */
+
+#continue-btn {
+    padding: 12px 24px;
+
+    border-radius: 8px;
+
+    background-color: #E63946;
+    color: white;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    transition: 0.3s;
+}
+
+#continue-btn:hover {
+    background-color: #B91C1C;
+    transform: translateY(-2px);
+}
+
+#continue-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+
+/*---------------- Mobile ----------------*/
+
+@media (max-width: 600px) {
+
+    .selected-bus-header {
+        flex-direction: column;
+    }
+
+    .selected-route {
+        gap: 12px;
+    }
+
+    .selected-bus-times {
+        grid-template-columns: 1fr;
+    }
+
+    .booking-actions {
+        flex-direction: column-reverse;
+        align-items: stretch;
+    }
+
+    #back-btn,
+    #continue-btn {
+        justify-content: center;
+    }
+}
