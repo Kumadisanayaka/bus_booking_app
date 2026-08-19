@@ -56,3 +56,37 @@ export async function getBusesSchedules() {
 
 //-------------Get Bus schedule by ID--------------//
 
+export async function getBusScheduleById(id) {
+
+    const url = `${BASE_URL}/BusBooking/GetBusScheduleById?id=${id}`;
+
+    const response = await fetch(url);
+
+    if(!response.ok){
+        throw new Error(`API Error : ${response.status}`);
+        
+    }
+
+    const data = await response.json();
+
+    return data;
+    
+}
+
+//-------------------Get Booked Seats----------------------//
+
+export async function getBookedSeats(id) {
+    
+    const url = `${BASE_URL}/BusBooking/getBookedSeats?shceduleId=${id}`;
+
+    const response = await fetch(url);
+
+    if (!response.ok) {
+        throw new Error(`API Error : ${response.status}`);
+        
+    }
+
+    const data = await response.json();
+
+    return data;
+}
