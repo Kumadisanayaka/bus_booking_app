@@ -90,3 +90,21 @@ export async function getBookedSeats(id) {
 
     return data;
 }
+
+//--------------Get Bus Location By Id-------------------//
+
+export async function getBusLocationById(locationId) {
+    
+    const url = `${BASE_URL}/BusBooking/GetBusLocationById?id=${locationId}`;
+
+    const response = await fetch(url);
+
+    if (!response.ok) {
+        throw new Error(`API Error : ${response.status}`);
+        
+    }
+
+    const data = await response.json();
+
+    return data;
+}
