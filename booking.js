@@ -1,4 +1,4 @@
-import { getBusScheduleById } from "./api.js";
+import { getBusScheduleById,getBusLocationById } from "./api.js";
 
 const selectedBus = document.getElementById("selected-bus");
 const backBtn = document.getElementById("back-btn");
@@ -54,7 +54,10 @@ async function loadSelectedBus() {
 
 //------------Dispaly Bus--------------//
 
-function displaySelectedBus(bus) {
+async function displaySelectedBus(bus) {
+
+    const fromLocationName = await getBusLocationById(bus.fromLocation);
+    const toLocationName = await getBusLocationById(bus.toLocation);
 
     selectedBus.innerHTML = "";
      
@@ -91,7 +94,7 @@ function displaySelectedBus(bus) {
                     <span>From</span>
 
                     <strong>
-                        ${bus.fromLocation}
+                        ${fromLocationName.locationName}
                     </strong>
 
                 </div>
@@ -105,7 +108,7 @@ function displaySelectedBus(bus) {
                     <span>To</span>
 
                     <strong>
-                        ${bus.toLocation}
+                        ${toLocationName.locationName}
                     </strong>
 
                 </div>
