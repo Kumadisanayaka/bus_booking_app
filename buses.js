@@ -125,6 +125,14 @@ function displayBusSchedules(schedules) {
         busList.appendChild(card);
 
     }); 
+
+    const selectButton = document.querySelector(".select-bus-btn");
+
+    selectButton.forEach((button) => {
+
+        
+        
+    });
 }
 
 //---------------- Format Date Time ----------------//
