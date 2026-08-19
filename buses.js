@@ -3,25 +3,25 @@ import { getBusesSchedules } from "./api.js";
 const busList = document.getElementById("bus-list");
 
 async function loadBusSchedules() {
-    
+
     try {
 
         const schedules = await getBusesSchedules();
 
-        console.log("Bus Schedules : ",schedules);
+        console.log("Bus Schedules : ", schedules);
 
         displayBusSchedules(schedules);
-        
+
     } catch (error) {
-        
-        console.error("Failed load bus schedule : ",error);
+
+        console.error("Failed load bus schedule : ", error);
 
         busList.innerHTML = `
             <p class="no-result">
                 Failed to load bus schedules.
             </p>
         `;
-        
+
     }
 }
 
@@ -29,7 +29,7 @@ async function loadBusSchedules() {
 
 function displayBusSchedules(schedules) {
 
-    if(schedules.length === 0){
+    if (schedules.length === 0) {
         busList.innerHTML = `
             <p class="no-result">
                 Failed to load bus schedules.
@@ -41,7 +41,7 @@ function displayBusSchedules(schedules) {
     busList.innerHTML = "";
 
     schedules.forEach((bus) => {
-        
+
         const card = document.createElement("div");
 
         card.classList.add("bus-card");
@@ -124,14 +124,22 @@ function displayBusSchedules(schedules) {
 
         busList.appendChild(card);
 
-    }); 
+    });
 
-    const selectButton = document.querySelector(".select-bus-btn");
+    const selectButtons = document.querySelectorAll(".select-bus-btn");
 
-    selectButton.forEach((button) => {
+    selectButtons.forEach((button) => {
 
-        
-        
+        button.addEventListener("click", () => {
+
+            const scheduleId = button.dataset.id;
+
+            console.log("Selected Schedule ID:", scheduleId);
+
+            window.location.href = `/booking.html?id=${scheduleId}`;
+
+        });
+
     });
 }
 
