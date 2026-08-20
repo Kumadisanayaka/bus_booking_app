@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Select Seats - BUSGO</title>
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
 </head>
+
 <body>
 
     <header>
@@ -42,7 +45,7 @@
         </nav>
     </header>
 
-    
+
 
     <main>
 
@@ -56,66 +59,85 @@
             </div>
 
 
-        <!----------------------------Bus Info----------------------------->
+            <!----------------------------Bus Info----------------------------->
 
-        <div id="seat-bus-info">
-
-        </div>
-
-        <!----------------------------Seat Layout------------------------->
-
-        <div class="seat-layout-container">
-
-            <div class="bus-front">
-                <i class="fa-solid fa-steering-wheel"></i>
-                Driver
-            </div>
-
-            <div id="seat-layout">
+            <div id="seat-bus-info">
 
             </div>
 
-        </div>
+            <!----------------------------Seat Layout------------------------->
 
-        <!----------------------------Seat Legend-------------------------->
+            <div class="seat-layout-container">
 
-        <div class="seat-legend">
+                <div class="bus-front">
+                    <i class="fa-solid fa-circle-user"></i> 
+                    Driver
+                </div>
 
-            <div>
-                <span class="seat-demo-available"></span>
-                Available
+                <div id="seat-layout">
+
+                </div>
+
             </div>
 
-            <div>
-                <span class="seat-demo-selected"></span>
-                Selected
+            <!----------------------------Seat Legend-------------------------->
+
+            <div class="seat-legend">
+
+                <div>
+                    <span class="seat-demo available"></span>
+                    Available
+                </div>
+
+                <div>
+                    <span class="seat-demo selected"></span>
+                    Selected
+                </div>
+
+                <div>
+                    <span class="seat-demo booked"></span>
+                    Booked
+                </div>
+
             </div>
 
-            <div>
-                <span class="seat-demo-booked"></span>
-                Booked
+            <!----------------------------Continue------------------------------>
+
+            <div class="seat-footer">
+
+                <p>
+                    Selected Seats:
+                    <strong id="selected-seat-count">0</strong>
+                </p>
+
+                <button id="continue-seat-btn">
+                    Continue
+                </button>
+
             </div>
-
-        </div>
-
-        <!----------------------------Continue------------------------------>
-
-        <div class="seat-footer">
-
-            <p>
-                Selected Seats:
-                <strong id="selected-seat-count">0</strong>
-            </p>
-
-            <button id="continue-seat-btn">
-                Continue
-            </button>
-
-        </div>
 
         </section>
 
     </main>
-    
+
+    <footer>
+
+        <div class="footer-container">
+
+            <h3>BUSGO</h3>
+
+            <p>
+                Your simple and reliable bus booking system.
+            </p>
+
+            <p>
+                © 2026 BUSGO. All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
 </body>
+
 </html>
