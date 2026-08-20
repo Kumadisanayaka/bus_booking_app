@@ -855,3 +855,78 @@ footer{
     gap: 8px;
 }
 
+.seat-demo{
+    width: 18px;
+    height: 18px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.seat-demo.available{
+    background-color: #252A32;
+    border: 1px solid #3A404A;
+}
+
+.seat-demo.selected{
+    background-color: #E63946;
+}
+
+.seat-demo.booked{
+    background-color: #3A3D44;
+}
+
+/*------------------------Footer-------------------------*/
+
+.seat-footer{
+    margin-top: 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.seat-footer p{
+    color: #9CA3AF;
+}
+
+.seat-footer strong{
+    color: white;
+}
+
+#continue-seat-btn{
+    padding: 12px 25px;
+    border-radius: 8px;
+    background-color: #E63946;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+#continue-seat-btn:hover{
+    background-color: #B91C1C;
+    transform: translateY(-2px);
+}
+
+/*------------------------Responsive - seat page ----------------------------*/
+
+@media (max-width: 600px){
+    .seat-bus-card{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .seat-legend{
+        flex-wrap: wrap;
+    }
+
+    .seat-footer{
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    #continue-seat-btn{
+        width: 100%;
+    }
+
+
+}
