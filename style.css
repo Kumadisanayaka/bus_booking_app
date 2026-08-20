@@ -733,3 +733,53 @@ footer{
         justify-content: center;
     }
 }
+
+/*---------------------------Seat selection page CSS---------------------------*/
+
+.seat-selection{
+    width: 90%;
+    max-width: 900px;
+    margin: auto;
+    padding: 70px 0;
+}
+
+/*----------------------------Bus info-------------------------------*/
+
+#seat-bus-info{
+    margin-bottom: 30px;
+}
+
+.seat-bus-card{
+    background-color: #181B21;
+    border: 1px solid #272A31;
+    border-radius: 12px;
+    padding: 20px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.seat-bus-card h2{
+    margin-bottom: 8px;
+}
+
+.seat-bus-card p{
+    color: #9CA3AF;
+}
+
+.seat-bus-card strong{
+    font-size: 20px;
+    color: #E63946;
+}
+
+/*----------------------------Bus Layout---------------------------*/
+
+.seat-layout-container{
+    width: 350px;
+    max-width: 100%;
+    margin: auto;
+    background-color: #181B21;
+    border: 1px solid #272A31;
+    border-radius: 20px;
+    padding: 25px;
+}
