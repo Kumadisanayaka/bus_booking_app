@@ -1,4 +1,4 @@
-import { getBusScheduleById,getBusLocationById } from "./api.js";
+import { getBusScheduleById,getBusLocationById,getBookedSeats } from "./api.js";
 
 const selectedBus = document.getElementById("selected-bus");
 const backBtn = document.getElementById("back-btn");
@@ -192,9 +192,21 @@ backBtn.addEventListener("click",()=>{
 
 //-----------Continue Button Action--------------//
 
-continueBtn.addEventListener("click",()=>{
+continueBtn.addEventListener("click",async ()=>{
 
     console.log("Continue with schedule : ",scheduleId);
+
+    try {
+        const bookedSeats = await getBookedSeats(scheduleId);
+
+        console.log("Booked Seats : ",bookedSeats);
+        
+    } catch (error) {
+
+        console.error("Failed to load booked seats : ",error);
+        
+        
+    }
     
 });
 
