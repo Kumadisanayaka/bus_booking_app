@@ -194,19 +194,7 @@ backBtn.addEventListener("click",()=>{
 
 continueBtn.addEventListener("click",async ()=>{
 
-    console.log("Continue with schedule : ",scheduleId);
-
-    try {
-        const bookedSeats = await getBookedSeats(scheduleId);
-
-        console.log("Booked Seats : ",bookedSeats);
-        
-    } catch (error) {
-
-        console.error("Failed to load booked seats : ",error);
-        
-        
-    }
+    window.location.href =  `/seat-selection.html?id=${scheduleId}`;
     
 });
 
