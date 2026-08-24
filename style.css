@@ -1014,3 +1014,98 @@ footer {
     }
 
 }
+
+/*---------------------- register form CSS ----------------------- */
+
+.auth-section{
+    min-height: 650px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+}
+
+.auth-card{
+    width: 100%;
+    max-width: 450px;
+    background-color: #181B21;
+    border: 1px solid #272A31;
+    border-radius: 16px;
+    padding: 35px;
+}
+
+.auth-heading{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.auth-heading h1{
+    font-size: 30px;
+}
+
+.auth-heading p{
+    margin-top: 10px;
+    color: #9CA3AF;
+}
+
+.auth-input{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+.auth-input label{
+    font-size: 14px;
+    color: #9CA3AF;
+}
+
+.auth-input input{
+    width: 100%;
+    padding: 13px 15px;
+    border-radius: 8px;
+    border: 1px solid #30343C;
+    background-color: #0F1115;
+    color: #F5F5F5;
+    outline: none;
+}
+
+.auth-input input:focus{
+    border-color: #E63946;
+}
+
+#register-error{
+    min-height: 12px;
+    margin-bottom: 10px;
+    color: #E63946;
+    font-size: 14px;
+}
+
+#register-btn{
+    width: 100%;
+    padding: 13px;
+    border-radius: 8px;
+    background-color: #E63946;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+#register-btn:hover{
+    background-color: #B91C1C;
+    transform: translateY(-2px);
+}
+
+.auth-switch{
+    margin-top: 25px;
+    text-align: center;
+    color: #9CA3AF;
+    font-size: 14px;
+}
+
+.auth-switch a{
+    color: #E63946;
+    font-weight: bold;
+}
+
