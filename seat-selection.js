@@ -15,6 +15,12 @@ const seatLayout = document.getElementById("seat-layout");
 const selectedSeatCount = document.getElementById("selected-seat-count");
 const continueSeatBtn = document.getElementById("continue-seat-btn");
 
+//-------------Alert model Elements-------------//
+
+const alertModel = document.getElementById("alert-model");
+const alertMessage = document.getElementById("alert-message");
+const alertOkBtn = document.getElementById("alert-ok-btn");
+
 //-----------Selected Seats---------------//
 
 let selectedSeat = [];
@@ -47,6 +53,8 @@ async function loadSeatPage() {
 
         //Display bus info
         displayBusInfo(bus);
+
+        generateSeats(bus.totalSeats,bookedSeats);
 
 
     } catch (error) {
@@ -81,6 +89,108 @@ function displayBusInfo(bus) {
         </div>
     `;
 }
+
+//-------------Generate Seats--------------//
+
+function generateSeats(totalSeats, bookedSeats) {
+    
+    seatLayout.innerHTML = "";
+
+    for (let seatNumber = 1; seatNumber <= totalSeats; seatNumber++) {
+        
+        const seat = document.createElement("button");
+
+        seat.classList.add("seat");
+
+        // check booked seat
+
+        if(bookedSeats.includes(seatNumber)){
+
+            seat.classList.add("booked");
+
+            seat.disabled = true;
+        }else{
+
+            seat.classList.add("available");
+
+            seat.addEventListener("click",()=>{
+                selectSeat(seatNumber,seat);
+            });
+        }
+
+        seat.innerHTML = `
+            ${seatNumber}
+        `;
+
+        seatLayout.appendChild(seat);
+        
+    }
+}
+
+//------------Select Seat-------------//
+
+function selectSeat(seatNumber,seatElement) {
+    
+    if(selectedSeat.includes(seatNumber)){
+
+        //Remove seat
+
+        selectedSeat = selectedSeat.filter(seat => seat !== seatNumber);
+
+        seatElement.classList.remove("selected");
+
+        seatElement.classList.add("available");
+
+    }else{
+
+        //add seat
+
+        selectedSeat.push(seatNumber);
+
+        seatElement.classList.remove("available");
+
+        seatElement.classList.add("selected");
+
+    }
+
+    updateSelectedSeatCount();
+
+}
+
+
+//----------------Update Selected Seat Count--------------//
+
+function updateSelectedSeatCount() {
+
+    selectedSeatCount.textContent = selectedSeat.length;
+}
+
+//---------------Continue button action------------------//
+
+continueSeatBtn.addEventListener("click",()=>{
+
+    if (selectedSeat.length === 0) {
+        showAlert("Please select at least one seat.");
+        return;
+    }
+
+    console.log("Selected Seat : ",selectedSeat);
+    console.log("Schedule Id : ",scheduleId);
+
+});
+
+//-------------Alert show function----------------//
+
+function showAlert(message) {
+    
+    alertMessage.textContent = message;
+
+    alertModel.classList.add("show");
+}
+
+alertOkBtn.addEventListener("click",()=>{
+    alertModel.classList.remove("show");
+});
 
 loadSeatPage();
 
