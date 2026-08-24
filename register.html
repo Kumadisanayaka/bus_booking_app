@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - BUSGO</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <nav class="nav-bar">
+            <h3 id="logo">BUSGO</h3>
+
+            <ul>
+                <li>
+                    <a href="/index.html">
+                        <i class="fa-solid fa-house"></i>
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="/buses.html">
+                        <i class="fa-solid fa-bus"></i>
+                        Buses
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-ticket"></i>
+                        My Bookings
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-right-to-bracket"></i>
+                        Login
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="auth-section">
+
+            <div class="auth-card">
+
+                <div class="auth-heading">
+                    <h1>Create Account</h1>
+                    <p>Register to continue your booking.</p>
+                </div>
+
+                <form id="register-form">
+
+                    <div class="auth-input">
+
+                        <label for="full-name">
+                            Full Name
+                        </label>
+
+                        <input type="text" id="full-name" placeholder="Enter your full name">
+
+                    </div>
+
+                    <div class="auth-input">
+
+                        <label for="username">
+                            Username
+                        </label>
+
+                        <input type="text" id="username" placeholder="Enter username">
+
+                    </div>
+
+                    <div class="auth-input">
+
+                        <label for="email">
+                            Email
+                        </label>
+
+                        <input type="email" id="email" placeholder="Enter email">
+
+                    </div>
+
+                    <div class="auth-input">
+
+                        <label for="password">
+                            Password
+                        </label>
+
+                        <input type="password" id="password" placeholder="Enter Password">
+
+                    </div>
+
+                    <div class="auth-input">
+
+                        <label for="confirm-password">
+                            Confirm Password
+                        </label>
+
+                        <input type="password" id="confirm-password" placeholder="Confirm Password">
+
+                    </div>
+
+                    <p id="register-error"></p>
+
+                    <button type="submit" id="register-btn">
+                        Create Account
+                    </button>
+
+                </form>
+
+                <p class="auth-switch">
+                    Already have an account?
+
+                    <a href="/login.html">
+                        Login
+                    </a>
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <div class="footer-container">
+
+            <h3>BUSGO</h3>
+
+            <p>
+                Your simple and reliable bus booking system.
+            </p>
+
+            <p>
+                © 2026 BUSGO. All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+    <script type="module" src="/register.js"></script>
+
+</body>
+
+</html>
