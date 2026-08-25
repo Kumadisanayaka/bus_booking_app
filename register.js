@@ -55,7 +55,7 @@ registerForm.addEventListener("submit", async (event) => {
         return;
     }
 
-    if (password.value === "") {
+    if (password.value.trim() === "") {
 
         registerError.textContent = "Please enter a password."
 
@@ -83,7 +83,7 @@ registerForm.addEventListener("submit", async (event) => {
         fullName: fullName.value.trim(),
         role: "Customer",
         createdDate: new Date().toISOString(),
-        password: password.value,
+        password: password.value.trim(),
         projectName: "BusBooking",
         refreshToken: null,
         refreshTokenExpiryTime: null
