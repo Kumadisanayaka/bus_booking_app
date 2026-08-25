@@ -101,16 +101,16 @@ registerForm.addEventListener("submit", async (event) => {
 
         if (!result.result) {
 
-            showAlert("Registration Failed",result.message);
+            showAlert("Registration Failed",result.message,false);
 
             return;
         }
 
-        showAlert("Registration Successful","Your BUSGO account has been created successfully.");
+        showAlert("Registration Successful","Your BUSGO account has been created successfully.",true);
 
         registerForm.reset();
 
-        // window.location.href = "/login.html";
+       
 
     } catch (error) {
 
@@ -122,10 +122,14 @@ registerForm.addEventListener("submit", async (event) => {
 
 });
 
-function showAlert(title,message) {
+let regitrationSuccess = false;
+
+function showAlert(title,message, success = false) {
     
     alertTitle.textContent = title;
     alertMessage.textContent = message;
+
+    regitrationSuccess = success;
 
     alertModel.classList.add("show");
 }
@@ -133,5 +137,11 @@ function showAlert(title,message) {
 alertOkBtn.addEventListener("click",()=>{
 
     alertModel.classList.remove("show");
+
+    if(regitrationSuccess){
+        
+        window.location.href = "/login.html";
+    
+    }
 
 });
