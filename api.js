@@ -109,3 +109,31 @@ export async function getBusLocationById(locationId) {
     return data;
 }
 
+//----------------Add New User------------------//
+
+export async function registerUser(userData) {
+    
+    const url = `${BASE_URL}/BusBooking/AddNewUser`;
+
+    const response = await fetch(url,{
+
+        method : "POST",
+
+        headers : {
+            "Content-Type" : "application/json"
+        },
+
+        body : JSON.stringify(userData)
+
+    });
+
+    if(!response.ok){
+
+        throw new Error(`API Error : ${response.status}`);
+        
+    }
+
+    return await response.json();
+
+}
+
