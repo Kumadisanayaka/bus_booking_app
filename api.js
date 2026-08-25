@@ -137,3 +137,33 @@ export async function registerUser(userData) {
 
 }
 
+//-------------------User Login--------------------//
+
+export async function loginUser(userName, password) {
+
+    const url = `${BASE_URL}/BusBooking/login`;
+
+    const response = await fetch(url, {
+
+        method: "POST",
+
+        headers: {
+            "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify({
+            userName: userName,
+            password: password
+        })
+
+    });
+
+    if (!response.ok) {
+        throw new Error(`API Error : ${response.status}`);
+    }
+
+    const data = await response.json();
+
+    return data;
+}
+
