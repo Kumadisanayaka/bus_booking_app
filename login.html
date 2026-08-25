@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - BUSGO</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+
+    <header>
+
+        <nav class="nav-bar">
+            <h3 id="logo">BUSGO</h3>
+
+            <ul>
+                <li>
+                    <a href="/index.html">
+                        <i class="fa-solid fa-house"></i>
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="/buses.html">
+                        <i class="fa-solid fa-bus"></i>
+                        Buses
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-ticket"></i>
+                        My Bookings
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-right-to-bracket"></i>
+                        Login
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="auth-section">
+
+            <div class="auth-card">
+
+                <div class="auth-heading">
+                    <h1>Welcome Back</h1>
+                    <p>Login to your BUSGO account.</p>
+                </div>
+
+                <form id="login-form">
+
+                    <div class="input-group">
+
+                        <label for="username">Username</label>
+                        <input type="text" id="username" placeholder="Enter your username" required>
+
+                    </div>
+
+                    <div class="input-group">
+
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="Enter your password" required>
+
+                    </div>
+
+                    <p id="login-error"></p>
+
+                    <button type="submit" id="login-btn">
+                        <i class="fa-solid fa-right-to-bracket"></i>
+                        Login
+                    </button>
+
+                </form>
+
+                <p class="auth-link">
+                    Don't have an account?
+                    <a href="/register.html">Create Account</a>
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script type="module" src="/login.js"></script>
+    
+</body>
+</html>
