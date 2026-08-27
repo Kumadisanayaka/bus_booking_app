@@ -59,6 +59,11 @@ loginForm.addEventListener("submit",async(event)=>{
 
         setCurrentUser(user);
 
+        if (!user) {
+            
+            window.location.href = "/login.html";
+        }
+
         console.log("Logged User : ",user);
         
 
