@@ -1,16 +1,18 @@
-let currentUser = null;
+const SESSION_KEY = "busgoUser";
 
 //-------------Set Logged User------------//
 
 export function setCurrentUser(user) {
 
-    currentUser = {
+    const currentUser = {
         userId: user.userId,
         userName: user.userName,
         fullName: user.fullName,
         emailId: user.emailId,
         role: user.role
     };
+
+    sessionStorage.setItem(SESSION_KEY,JSON.stringify(currentUser));
     
 }
 
@@ -18,14 +20,21 @@ export function setCurrentUser(user) {
 
 export function getCurrentUser() {
     
-    return currentUser;
+    const user = sessionStorage.getItem(SESSION_KEY);
+
+    if (!user) {
+        
+        return null;
+    }
+
+    return JSON.parse(user);
 }
 
 //----------Check Login------------//
 
 export function isLoggedIn() {
 
-    return currentUser !== null;
+    return sessionStorage.getItem(SESSION_KEY) !== null;
     
 }
 
@@ -33,7 +42,7 @@ export function isLoggedIn() {
 
 export function logOutUser() {
     
-    currentUser = null;
+    sessionStorage.removeItem(SESSION_KEY);
 
 }
 
