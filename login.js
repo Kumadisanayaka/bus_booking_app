@@ -1,4 +1,5 @@
 import { loginUser } from "./api.js";
+import { setCurrentUser } from "./session.js";
 
 //---------------------Elements----------------------//
 
@@ -54,7 +55,14 @@ loginForm.addEventListener("submit",async(event)=>{
 
         }
 
-        showAlert("Login Successful","Welcome to BUSGO.",true);
+        const user = result.data;
+
+        setCurrentUser(user);
+
+        console.log("Logged User : ",user);
+        
+
+        showAlert("Login Successful",`Welcom ${user.fullName}`,true);
         
         
     } catch (error) {
