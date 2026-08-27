@@ -1197,3 +1197,146 @@ footer {
     }
 }
 
+
+/*--------------------------------Passenger Page CSS---------------------------*/
+
+.passenger-section{
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 20px 80px;
+}
+
+.passenger-section .section-heading{
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.passenger-section .section-heading h1{
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.passenger-section .section-heading p{
+    font-size: 15px;
+    color: #9CA3AF;
+}
+
+/*-------------------------Bus infomation-----------------------------*/
+
+#passenger-bus-info{
+    margin-bottom: 25px;
+}
+
+.passenger-card{
+    background-color: #181B21;
+    border: 1px solid #272A31;
+    border-radius: 12px;
+    padding: 25px;
+}
+
+.passenger-card-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.passenger-card-header h3{
+    font-size: 18px;
+}
+
+.passenger-seat{
+    padding: 6px 12px;
+    border-radius: 20px;
+    background-color: #272A31;
+    color: #D1D5DB;
+    font-size: 13px;
+}
+
+/*-------------------------Passenger Form--------------------------------*/
+
+.passenger-form{
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 18px;
+}
+
+.passenger-input-group{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.passenger-input-group label{
+    color: #D1D5DB;
+    font-size: 14px;
+}
+
+.passenger-input-group input,
+.passenger-input-group input select{
+    width: 100%;
+    padding: 12px 13px;
+    border: 1px solid #30343C;
+    border-radius: 8px;
+    background-color: #0F1115;
+    color: #f5f5f5;
+    outline: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.passenger-input-group input::placeholder{
+    color: #6B7280;
+}
+
+.passenger-input-group input:focus,
+.passenger-input-group input select:focus{
+    border-color: #E63946;
+}
+
+/*--------------------Passenger Action----------------------*/
+
+.passenger-action{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+}
+
+#back-passenger-btn,
+#continue-passenger-btn{
+    min-width: 140px;
+    height: 45px;
+    padding: 0 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: 0.3s;
+}
+
+#back-passenger-btn{
+    background-color: #272A31;
+    color: #D1D5DB;
+}
+
+#back-passenger-btn:hover{
+    background-color: #343842;
+}
+
+#continue-passenger-btn{
+    background-color: #E63946;
+    color: white;
+}
+
+#continue-passenger-btn:hover{
+    background-color: #B91C1C;
+    transform: translateY(-2px);
+}
+
+
+
+
+
