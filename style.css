@@ -1336,7 +1336,60 @@ footer {
     transform: translateY(-2px);
 }
 
+/*-------------------Responsive Passanger Page--------------------------*/
 
+@media (max-width: 700px) {
+
+    .passenger-section {
+        padding: 45px 15px 60px;
+    }
+
+    .passenger-section .section-heading h1 {
+        font-size: 27px;
+    }
+
+    .passenger-bus-card {
+        padding: 18px;
+    }
+
+    .passenger-bus-card h2 {
+        font-size: 18px;
+    }
+
+    .passenger-bus-price {
+        font-size: 17px;
+    }
+
+    .passenger-form {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .passenger-actions {
+        gap: 15px;
+    }
+
+    #back-passenger-btn,
+    #continue-passenger-btn {
+        flex: 1;
+        min-width: 0;
+    }
+
+}
+
+
+@media (max-width: 400px) {
+
+    .passenger-actions {
+        flex-direction: column-reverse;
+    }
+
+    #back-passenger-btn,
+    #continue-passenger-btn {
+        width: 100%;
+    }
+
+}
 
 
 
