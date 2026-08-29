@@ -177,6 +177,11 @@ continueSeatBtn.addEventListener("click",()=>{
     console.log("Selected Seat : ",selectedSeat);
     console.log("Schedule Id : ",scheduleId);
 
+     window.location.href =  `/passenger.html?id=${scheduleId}&seats=${selectedSeat}`;
+    
+
+
+
 });
 
 //-------------Alert show function----------------//
