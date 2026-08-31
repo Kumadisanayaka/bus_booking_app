@@ -173,6 +173,109 @@ function generatePassengerForms(seats) {
     
 }
 
+//---------------Get Passenger Data---------------//
+
+function getPassengerData() {
+
+    const passengerCards = document.querySelectorAll(".passenger-card");
+
+    const passengers = [];
+
+    passengerCards.forEach(card => {
+        const name = card.querySelector(".passenger-name").value.trim();
+        const age = Number(card.querySelector(".passenger-age").value);
+        const gender = card.querySelector(".passenger-gender").value;
+        const seatNo = Number(card.querySelector(".passenger-seat").textContent.replace("Seat","").trim());
+
+        passengers.push({
+            passengerName : name,
+            age : age,
+            gender : gender,
+            seatNo : seatNo
+        });
+
+    });
+
+    return passengers;
+    
+}
+
+//------------------Validate Passengers Data----------------//
+
+function validatePassengers(passengers) {
+    
+    for (let passenger of passengers) {
+
+        if (!passenger.passengerName) {
+
+            showAlert(
+                "Missing Name",
+                `Please enter the name for seat ${passenger.seatNo}.`
+            );
+
+            return false;
+            
+        }
+
+        if (!passenger.age || passenger.age < 1) {
+
+            showAlert(
+                "Invalid Age",
+                `Please enter a valid age for Seat ${passenger.seatNo}.`
+            );
+
+            return false;
+            
+        }
+
+        if (!passenger.gender) {
+            
+            showAlert(
+                "Missing gender",
+                `Please select gender for seat ${passenger.seatNo}.`
+            );
+
+            return false;
+        }
+        
+    }
+
+    return true;
+}
+
+//--------------------Continue Button-----------------------//
+
+continuePassengerBtn.addEventListener("click", ()=>{
+
+    const passengers = getPassengerData();
+
+    console.log("Passenger Data : ",passengers);
+
+    if (!validatePassengers(passengers)) {
+
+        return;
+        
+    }
+
+    console.log("schedule Id : ",scheduleId);
+    console.log("Selected Seats : ",selectedSeats);
+    console.log("Passengers : ",passengers);
+
+    showAlert(
+        "Details Completed",
+        "Passenger details are ready."
+    );
+    
+});
+
+//--------------Back Button Action---------------//
+
+backPassengerBtn.addEventListener("click",()=>{
+
+    window.history.back();
+
+});
+
 //-----------Show Alert------------//
 
 function showAlert(title,message) {
