@@ -167,3 +167,27 @@ export async function loginUser(userName, password) {
     return data;
 }
 
+//-------------Post Bus Booking----------------//
+
+export async function postBusBooking(bookingData) {
+    
+    const url = `${BASE_URL}/BusBooking/PostBusBooking`;
+
+    const response = await fetch(url,{
+        method: "POST",
+
+        headers: {
+            "Content-Type":"application/json"
+        },
+
+        body: JSON.stringify(bookingData)
+    });
+
+    if (!response.ok) {
+        throw new Error(`Booking Failed : ${response.status}`);
+        
+    }
+
+    return await response.json();
+}
+
