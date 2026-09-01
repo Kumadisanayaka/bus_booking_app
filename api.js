@@ -227,4 +227,22 @@ export async function getBusBooking(bookingId) {
     
 }
 
+//----------------Delete Bus Booking----------------//
 
+export async function deleteBusBooking(bookingId) {
+
+    const url = `${BASE_URL}/BusBooking/DeleteBusBooking?id=${bookingId}`;
+
+    const response = await fetch(url, {
+        method: "DELETE"
+    });
+
+    if (!response.ok) {
+        throw new Error(`Failed to delete booking: ${response.status}`);
+    }
+
+    // API may return empty response
+    const text = await response.text();
+
+    return text ? JSON.parse(text) : null;
+}
