@@ -195,7 +195,11 @@ button {
 }
 
 
+/*--------------Booking section----------------*/
 
+.booking-section-home {
+    display: none;
+}
 
 
 
@@ -288,6 +292,33 @@ button {
 .feature-card:hover {
     transform: translateY(-6px);
     border-color: #E63946;
+}
+
+.routes-loading {
+    width: 100%;
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 15px;
+    color: #666;
+}
+
+.routes-loading::before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    border: 2px solid #ddd;
+    border-top-color: #333;
+    border-radius: 50%;
+    vertical-align: -3px;
+    animation: route-loading-spin 0.8s linear infinite;
+}
+
+@keyframes route-loading-spin {
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 /*---------------------------footer css------------------------------*/
@@ -1391,5 +1422,232 @@ footer {
 
 }
 
+/*-------------------- MY BOOKINGS ------------------*/
+
+.my-bookings {
+    padding: 80px 5%;
+    min-height: 600px;
+}
+
+.my-bookings .section-heading {
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.my-bookings .section-heading h2 {
+    color: #ffffff;
+    font-size: 32px;
+    margin-bottom: 5px;
+}
+
+.my-bookings .section-heading p {
+    color: #ffffff;
+    font-size: 18px;
+}
 
 
+/*------------- Booking List -------------*/
+
+#booking-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/*------------- Booking Card -------------*/
+
+.booking-card {
+    background: #ffffff;
+    color: #333333;
+    padding: 32px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+
+/*------------- Card Header -------------*/
+
+.booking-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.booking-card-header h3 {
+    color: #222222;
+    font-size: 22px;
+    margin: 0;
+}
+
+.booking-id {
+    color: #555555;
+    font-size: 15px;
+    white-space: nowrap;
+}
+
+
+/*------------- Route -------------*/
+
+.booking-route {
+    color: #222222;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.booking-route i {
+    margin: 0 10px;
+    color: #e63946;
+}
+
+
+/*------------- Booking Info -------------*/
+
+.booking-info {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 25px;
+}
+
+.booking-info p {
+    margin: 0;
+    color: #444444;
+    font-size: 16px;
+}
+
+.booking-info i {
+    width: 25px;
+    color: #555555;
+    margin-right: 10px;
+}
+
+
+/*------------- Seats -------------*/
+
+.booking-seats {
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    padding: 18px;
+}
+
+.booking-seats strong {
+    display: block;
+    color: #333333;
+    margin-bottom: 12px;
+}
+
+.seat-list {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.seat {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 38px;
+    height: 38px;
+
+    background: #eeeeee;
+    color: #333333;
+
+    border-radius: 7px;
+    font-weight: bold;
+}
+
+
+/*------------- No Bookings -------------*/
+
+.no-bookings {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px 20px;
+    color: #ffffff;
+}
+
+.no-bookings i {
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+
+.no-bookings h3 {
+    margin-bottom: 8px;
+}
+
+
+/*------------- Loading -------------*/
+
+#booking-loading {
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 40px;
+}
+
+#booking-loading p {
+    color: #ffffff;
+    font-size: 18px;
+}
+
+
+/*------------- Responsive -------------*/
+
+@media (max-width: 600px) {
+
+    .my-bookings {
+        padding: 60px 20px;
+    }
+
+    #booking-list {
+        grid-template-columns: 1fr;
+    }
+
+    .booking-card {
+        padding: 25px;
+    }
+
+    .booking-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+}
+
+/*---------- Booking Actions ----------*/
+
+.booking-actions {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.cancel-booking-btn {
+    border: none;
+    background: #fff;
+    color: #dc3545;
+    border: 1px solid #dc3545;
+    padding: 9px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.cancel-booking-btn i {
+    margin-right: 6px;
+}
+
+.cancel-booking-btn:hover {
+    background: #dc3545;
+    color: #fff;
+}
