@@ -191,3 +191,40 @@ export async function postBusBooking(bookingData) {
     return await response.json();
 }
 
+//---------------Get All Bookings---------------//
+
+export async function getAllBusBookings(vendorId) {
+
+    const url = `${BASE_URL}/BusBooking/GetAllBusBookings?vendorId=${vendorId}`;
+
+    const response = await fetch(url);
+
+    if (!response.ok) {
+        
+        throw new Error(`Failed to load bookings: ${response.status}`);
+        
+    }
+
+    return await response.json();
+    
+}
+
+//----------------Get Single Bus Booking-------------------//
+
+export async function getBusBooking(bookingId) {
+
+    const url = `${BASE_URL}/BusBooking/GetBusBooking?id=${bookingId}`;
+
+    const response = await fetch(url);
+
+    if (!response.ok) {
+        
+        throw new Error(`Failed to load booking: ${response.status}`);
+        
+    }
+
+    return await response.json();
+    
+}
+
+
