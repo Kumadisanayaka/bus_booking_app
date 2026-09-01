@@ -11,6 +11,124 @@ const searchBtn = document.getElementById("search-btn");
 const searchError = document.getElementById("search-error");
 const searchResult = document.getElementById("search-result");
 
+//--------------------------POPULER ROUTES ELEMENTS------------------------------//
+
+const popularRoutesContainer = document.getElementById("popular-routes-container");
+const bookingSection = document.getElementById("booking-section");
+
+//---------------- Popular Routes ----------------//
+
+async function loadPopularRoutes() {
+
+    try {
+
+        const routes = await getAvailableRoutes();
+
+        console.log("Popular Routes:", routes);
+
+        if (!Array.isArray(routes) || routes.length === 0) {
+
+            popularRoutesContainer.innerHTML = `
+                <p class="no-routes">
+                    No popular routes available.
+                </p>
+            `;
+
+            return;
+        }
+
+        // Get unique routes
+        const uniqueRoutes = [];
+
+        routes.forEach(route => {
+
+            const exists = uniqueRoutes.some(item =>
+                item.fromLocationName === route.fromLocationName &&
+                item.toLocationName === route.toLocationName
+            );
+
+            if (!exists) {
+                uniqueRoutes.push(route);
+            }
+
+        });
+
+        // Display first 3 routes
+        const popularRoutes = uniqueRoutes.slice(0, 3);
+
+        popularRoutesContainer.innerHTML =
+            popularRoutes.map(route => {
+
+                return `
+                    <div class="route-card">
+
+                        <h3>
+                            ${route.fromLocationName}
+                            →
+                            ${route.toLocationName}
+                        </h3>
+
+                        <p>
+                            <i class="fa-solid fa-bus"></i>
+                            ${route.busCount} buses available
+                        </p>
+
+                        <p>
+                            <i class="fa-solid fa-calendar-days"></i>
+                            ${formatScheduleDate(route.scheduleDate)}
+                        </p>
+
+                        <button
+                            class="view-route-btn"
+                            data-from="${route.fromLocationName}"
+                            data-to="${route.toLocationName}">
+
+                            View Buses
+
+                        </button>
+
+                    </div>
+                `;
+
+            }).join("");
+
+    } catch (error) {
+
+        console.error("Failed to load popular routes:", error);
+
+        popularRoutesContainer.innerHTML = `
+            <p class="no-routes">
+                Unable to load popular routes.
+            </p>
+        `;
+    }
+}
+
+loadPopularRoutes();
+
+popularRoutesContainer.addEventListener("click", (event) => {
+
+    const button = event.target.closest(".view-route-btn");
+
+    if (!button) {
+        return;
+    }
+
+    const from = button.dataset.from;
+    const to = button.dataset.to;
+
+    fromInput.value = from;
+    toInput.value = to;
+
+    fromInput.focus();
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+});
+
 //-----------------search button action--------------------//
 
 searchBtn.addEventListener("click", async ()=>{
