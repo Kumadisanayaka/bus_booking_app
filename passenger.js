@@ -1,4 +1,4 @@
-import { getBusScheduleById,postBusBooking } from "./api.js";
+import { getBusScheduleById, postBusBooking } from "./api.js";
 import { getCurrentUser } from "./session.js";
 
 //----------Get Seat selection page true Parametes----------//
@@ -12,8 +12,8 @@ const seats = params.get("seats");
 
 const selectedSeats = seats ? seats.split(",").map(Number) : [];
 
-console.log("scheduleId : ",scheduleId);
-console.log("Selected Seats : ",selectedSeats);
+console.log("scheduleId : ", scheduleId);
+console.log("Selected Seats : ", selectedSeats);
 
 //--------------Get Elements--------------//
 
@@ -21,7 +21,7 @@ const passengerBusInfo = document.getElementById("passenger-bus-info");
 const passengerList = document.getElementById("passenger-list");
 const backPassengerBtn = document.getElementById("back-passenger-btn");
 const continuePassengerBtn = document.getElementById("continue-passenger-btn");
-        
+
 //-----------Alert Box Element------------//
 
 const alertModel = document.getElementById("alert-model");
@@ -32,10 +32,10 @@ const alertOkBtn = document.getElementById("alert-ok-btn");
 //--------------Load Passenger Page---------------//
 
 async function loadPassengerPage() {
-    
+
     if (!scheduleId || selectedSeats.length === 0) {
-        
-        showAlert("No Seat Selected","Please select at least one seat first.");
+
+        showAlert("No Seat Selected", "Please select at least one seat first.");
 
         continuePassengerBtn.disabled = true;
 
@@ -51,24 +51,24 @@ async function loadPassengerPage() {
 
         const bus = await getBusScheduleById(scheduleId);
 
-        console.log("Bus : ",bus)
+        console.log("Bus : ", bus)
 
         displayBusInfo(bus);
 
         generatePassengerForms(selectedSeats);
-        
+
     } catch (error) {
 
-        console.error("Failed to load passenger page : ",error);
+        console.error("Failed to load passenger page : ", error);
 
-        showAlert("Error","Failed to load passenger details.");
+        showAlert("Error", "Failed to load passenger details.");
     }
 }
 
 //----------Display Bus Information------------//
 
 function displayBusInfo(bus) {
-    
+
     passengerBusInfo.innerHTML = `
         <div class="passenger-bus-card">
 
@@ -104,7 +104,7 @@ function generatePassengerForms(seats) {
 
     passengerList.innerHTML = "";
 
-    seats.forEach((seatNumber,index) => {
+    seats.forEach((seatNumber, index) => {
 
         const passengerCard = document.createElement("div");
 
@@ -169,9 +169,9 @@ function generatePassengerForms(seats) {
         `;
 
         passengerList.appendChild(passengerCard);
-        
+
     });
-    
+
 }
 
 //---------------Get Passenger Data---------------//
@@ -186,25 +186,25 @@ function getPassengerData() {
         const name = card.querySelector(".passenger-name").value.trim();
         const age = Number(card.querySelector(".passenger-age").value);
         const gender = card.querySelector(".passenger-gender").value;
-        const seatNo = Number(card.querySelector(".passenger-seat").textContent.replace("Seat","").trim());
+        const seatNo = Number(card.querySelector(".passenger-seat").textContent.replace("Seat", "").trim());
 
         passengers.push({
-            passengerName : name,
-            age : age,
-            gender : gender,
-            seatNo : seatNo
+            passengerName: name,
+            age: age,
+            gender: gender,
+            seatNo: seatNo
         });
 
     });
 
     return passengers;
-    
+
 }
 
 //------------------Validate Passengers Data----------------//
 
 function validatePassengers(passengers) {
-    
+
     for (let passenger of passengers) {
 
         if (!passenger.passengerName) {
@@ -215,7 +215,7 @@ function validatePassengers(passengers) {
             );
 
             return false;
-            
+
         }
 
         if (!passenger.age || passenger.age < 1) {
@@ -226,11 +226,11 @@ function validatePassengers(passengers) {
             );
 
             return false;
-            
+
         }
 
         if (!passenger.gender) {
-            
+
             showAlert(
                 "Missing gender",
                 `Please select gender for seat ${passenger.seatNo}.`
@@ -238,7 +238,7 @@ function validatePassengers(passengers) {
 
             return false;
         }
-        
+
     }
 
     return true;
@@ -246,32 +246,78 @@ function validatePassengers(passengers) {
 
 //--------------------Continue Button-----------------------//
 
-continuePassengerBtn.addEventListener("click", ()=>{
+continuePassengerBtn.addEventListener("click", async () => {
 
     const passengers = getPassengerData();
 
-    console.log("Passenger Data : ",passengers);
+    console.log("Passenger Data : ", passengers);
 
     if (!validatePassengers(passengers)) {
 
         return;
-        
+
     }
 
-    console.log("schedule Id : ",scheduleId);
-    console.log("Selected Seats : ",selectedSeats);
-    console.log("Passengers : ",passengers);
+    // console.log("schedule Id : ",scheduleId);
+    // console.log("Selected Seats : ",selectedSeats);
+    // console.log("Passengers : ",passengers);
 
-    showAlert(
-        "Details Completed",
-        "Passenger details are ready."
-    );
-    
+    const user = getCurrentUser();
+
+    if (!user) {
+
+        showAlert(
+            "Login Required",
+            "Please login before making a booking."
+        );
+
+        return;
+
+    }
+
+    //------Create Booking Object-------//
+
+    const bookingData = {
+        bookingId: 0,
+        custId: user.userId,
+        bookingDate: new Date().toISOString(),
+        scheduleId: Number(scheduleId),
+        busBookingPassengers: passengers
+    };
+
+    console.log("Booking Data: ", bookingData);
+
+    try {
+
+        const result = await postBusBooking(bookingData);
+
+        console.log("Booking Response : ", result);
+
+        if (result) {
+
+            showAlert(
+                "Booking Successful",
+                `Your booking ID is ${result.bookingId}`
+            );
+        }
+
+
+    } catch (error) {
+
+        console.error("Booking error: ",error);
+
+        showAlert(
+            "Booking Failed",
+            "Something went wrong while creating your booking."
+        );
+    }
+
+
 });
 
 //--------------Back Button Action---------------//
 
-backPassengerBtn.addEventListener("click",()=>{
+backPassengerBtn.addEventListener("click", () => {
 
     window.history.back();
 
@@ -279,12 +325,19 @@ backPassengerBtn.addEventListener("click",()=>{
 
 //-----------Show Alert------------//
 
-function showAlert(title,message) {
-    
+function showAlert(title, message) {
+
     alertTitle.textContent = title;
     alertMessage.textContent = message;
 
     alertModel.classList.add("show");
 }
+//------------Alert ok btn action----------//
+
+alertOkBtn.addEventListener("click",()=>{
+    
+    alertModel.classList.remove("show");
+
+});
 
 loadPassengerPage();
