@@ -8,8 +8,16 @@
 
 body {
     font-family: Arial, sans-serif;
+    color: #111111;
     background-color: #0F1115;
-    color: #f5f5f5;
+    background-image:
+        linear-gradient(rgba(15, 17, 21, 0.92), rgba(15, 17, 21, 0.92)),
+        url("/image/busgo-background.jpeg");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding-top: 75px;
 }
 
 a {
@@ -23,6 +31,17 @@ button {
 }
 
 /*--------------------Nav Bar Css--------------------------*/
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    background-color: rgba(15, 17, 21, 0.96);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(39, 42, 49, 0.8);
+}
 
 .nav-bar {
     width: 90%;
@@ -48,7 +67,7 @@ button {
 }
 
 .nav-bar ul li a {
-    color: #9CA3AF;
+    color: #D1D5DB;
     font-size: 18px;
     display: flex;
     align-items: center;
@@ -76,11 +95,12 @@ button {
     font-size: 52px;
     max-width: 750px;
     line-height: 1.15;
+    color: #ffffff;
 }
 
 .heading-sec p {
     margin-top: 20px;
-    color: #9CA3AF;
+    color: #D1D5DB;
     font-size: 18px;
 }
 
@@ -90,13 +110,14 @@ button {
     margin-top: 50px;
     width: 100%;
     max-width: 1000px;
-    background-color: #181B21;
+    background-color: #ffffff;
     padding: 25px;
     border-radius: 15px;
     display: flex;
     align-items: end;
     gap: 15px;
-    border: 1px solid #272A31;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
 .input-group {
@@ -109,7 +130,7 @@ button {
 
 .input-group label {
     font-size: 13px;
-    color: #9CA3AF;
+    color: #555555;
 }
 
 .input-group i {
@@ -120,9 +141,9 @@ button {
     width: 100%;
     padding: 13px 15px;
     border-radius: 8px;
-    border: 1px solid #30343C;
-    background-color: #0F1115;
-    color: #F5F5F5;
+    border: 1px solid #d1d5db;
+    background-color: #f9fafb;
+    color: #111111;
     outline: none;
 }
 
@@ -167,30 +188,34 @@ button {
     margin: 0 auto;
     padding: 24px;
     border-radius: 16px;
-    background: #1a1d24;
-    border: 1px solid #2b303a;
+    background: #ffffff;
+    color: #222222;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
 .search-result-card h3 {
     font-size: 22px;
     margin-bottom: 18px;
+    color: #222222;
 }
 
 .search-result-card p {
     margin: 10px 0;
-    color: #c9cdd5;
+    color: #555555;
 }
 
 .search-result-card i {
     margin-right: 8px;
+    color: #E63946;
 }
 
 .search-result-card button {
     margin-top: 15px;
     padding: 10px 18px;
     border-radius: 8px;
-    background: #ffffff;
-    color: #111;
+    background: #E63946;
+    color: white;
     font-weight: bold;
 }
 
@@ -218,6 +243,15 @@ button {
     margin-bottom: 45px;
 }
 
+.section-heading h1,
+.section-heading h2 {
+    color: #ffffff;
+}
+
+.section-heading p {
+    color: #D1D5DB;
+}
+
 .route-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -225,19 +259,23 @@ button {
 }
 
 .route-card {
-    background-color: #181B21;
-    border: 1px solid #272A31;
+    background-color: #ffffff;
+    color: #222222;
+    border: 1px solid #e5e7eb;
     padding: 30px;
     border-radius: 12px;
     transition: 0.3s;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
 .route-card h3 {
     font-size: 20px;
+    color: #222222;
 }
 
 .route-card p {
     margin: 15px 0;
+    color: #555555;
 }
 
 .route-card button {
@@ -268,12 +306,22 @@ button {
 }
 
 .feature-card {
-    background-color: #181B21;
-    border: 1px solid #272A31;
+    background-color: #ffffff;
+    color: #222222;
+    border: 1px solid #e5e7eb;
     padding: 35px 25px;
     border-radius: 12px;
     text-align: center;
     transition: 0.3s;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.feature-card h3 {
+    color: #222222;
+}
+
+.feature-card p {
+    color: #555555;
 }
 
 .feature-icon {
@@ -299,7 +347,7 @@ button {
     text-align: center;
     padding: 30px 20px;
     font-size: 15px;
-    color: #666;
+    color: #D1D5DB;
 }
 
 .routes-loading::before {
@@ -309,7 +357,7 @@ button {
     height: 16px;
     margin-right: 8px;
     border: 2px solid #ddd;
-    border-top-color: #333;
+    border-top-color: #E63946;
     border-radius: 50%;
     vertical-align: -3px;
     animation: route-loading-spin 0.8s linear infinite;
@@ -328,6 +376,7 @@ footer {
     border-top: 1px solid #272A31;
     text-align: center;
     padding: 40px 20px;
+    background-color: #0F1115;
 }
 
 .footer-container h3 {
@@ -348,6 +397,14 @@ footer {
         height: auto;
         padding: 20px 0;
         gap: 20px;
+    }
+
+    header {
+        position: fixed;
+    }
+
+    body {
+        padding-top: 125px;
     }
 
     .nav-bar ul {
@@ -388,6 +445,11 @@ footer {
 
 .bus-search-summary h1 {
     font-size: 40px;
+    color: #ffffff;
+}
+
+.bus-search-summary p {
+    color: #D1D5DB;
 }
 
 /*-------------------------Bus Result------------------------*/
@@ -410,11 +472,13 @@ footer {
 /*--------------------------Bus Card--------------------------*/
 
 .bus-card {
-    background-color: #181B21;
-    border: 1px solid #272A31;
+    background-color: #ffffff;
+    color: #222222;
+    border: 1px solid #e5e7eb;
     border-radius: 15px;
     padding: 25px;
     transition: 0.3s;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
 .bus-card:hover {
@@ -433,11 +497,12 @@ footer {
 
 .bus-card-header h3 {
     font-size: 21px;
+    color: #222222;
 }
 
 .bus-card-header p {
     margin-top: 8px;
-    color: #9CA3AF;
+    color: #666666;
 }
 
 .bus-card-header i {
@@ -456,8 +521,8 @@ footer {
 .bus-route {
     margin: 25px 0;
     padding: 20px 0;
-    border-top: 1px solid #272A31;
-    border-bottom: 1px solid #272A31;
+    border-top: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e5e7eb;
 
     display: flex;
     align-items: center;
@@ -474,12 +539,13 @@ footer {
 
 .bus-route span,
 .bus-time span {
-    color: #9CA3AF;
+    color: #777777;
     font-size: 13px;
 }
 
 .bus-route strong {
     font-size: 16px;
+    color: #222222;
 }
 
 .bus-route>i {
@@ -509,7 +575,7 @@ footer {
     justify-content: space-between;
     gap: 15px;
     flex-wrap: wrap;
-    color: #9CA3AF;
+    color: #666666;
 }
 
 .bus-card-footer i {
@@ -560,10 +626,12 @@ footer {
 }
 
 .selected-bus-card {
-    background-color: #181B21;
-    border: 1px solid #272A31;
+    background-color: #ffffff;
+    color: #222222;
+    border: 1px solid #e5e7eb;
     border-radius: 15px;
     padding: 30px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
 .selected-bus-header {
@@ -575,11 +643,12 @@ footer {
 
 .selected-bus-header h2 {
     font-size: 25px;
+    color: #222222;
 }
 
 .selected-bus-header p {
     margin-top: 8px;
-    color: #9CA3AF;
+    color: #666666;
 }
 
 .selected-bus-header i {
@@ -600,8 +669,8 @@ footer {
     margin: 30px 0;
     padding: 25px 0;
 
-    border-top: 1px solid #272A31;
-    border-bottom: 1px solid #272A31;
+    border-top: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e5e7eb;
 
     display: flex;
     align-items: center;
@@ -617,12 +686,13 @@ footer {
 
 .selected-route span,
 .selected-bus-times span {
-    color: #9CA3AF;
+    color: #777777;
     font-size: 13px;
 }
 
 .selected-route strong {
     font-size: 18px;
+    color: #222222;
 }
 
 .selected-route>i {
@@ -656,7 +726,7 @@ footer {
 }
 
 .selected-bus-info p {
-    color: #9CA3AF;
+    color: #666666;
 }
 
 .selected-bus-info i {
@@ -686,10 +756,10 @@ footer {
 
     border-radius: 8px;
 
-    background-color: transparent;
-    border: 1px solid #30343C;
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
 
-    color: #9CA3AF;
+    color: #555555;
 
     font-size: 14px;
     font-weight: 600;
@@ -783,21 +853,24 @@ footer {
 }
 
 .seat-bus-card {
-    background-color: #181B21;
-    border: 1px solid #272A31;
+    background-color: #ffffff;
+    color: #222222;
+    border: 1px solid #e5e7eb;
     border-radius: 12px;
     padding: 20px 25px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
 .seat-bus-card h2 {
     margin-bottom: 8px;
+    color: #222222;
 }
 
 .seat-bus-card p {
-    color: #9CA3AF;
+    color: #666666;
 }
 
 .seat-bus-card strong {
@@ -811,19 +884,21 @@ footer {
     width: 350px;
     max-width: 100%;
     margin: auto;
-    background-color: #181B21;
-    border: 1px solid #272A31;
+    background-color: #ffffff;
+    color: #222222;
+    border: 1px solid #e5e7eb;
     border-radius: 20px;
     padding: 25px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
 /*--------------------Driver-----------------------*/
 
 .bus-front {
     text-align: right;
-    color: #9CA3AF;
+    color: #666666;
     padding-bottom: 20px;
-    border-bottom: 1px solid #272A31;
+    border-bottom: 1px solid #e5e7eb;
     margin-bottom: 25px;
 }
 
@@ -848,9 +923,9 @@ footer {
 }
 
 .seat.available {
-    background-color: #252A32;
-    color: white;
-    border: 1px solid #3A404A;
+    background-color: #eeeeee;
+    color: #333333;
+    border: 1px solid #d1d5db;
 }
 
 .seat.available:hover {
@@ -866,7 +941,7 @@ footer {
 }
 
 .seat.booked {
-    background-color: #3A3D44;
+    background-color: #d1d5db;
     color: #777;
     cursor: not-allowed;
 }
@@ -878,7 +953,7 @@ footer {
     justify-content: center;
     gap: 25px;
     margin-top: 30px;
-    color: #9CA3AF;
+    color: #666666;
     font-size: 14px;
 }
 
@@ -896,8 +971,8 @@ footer {
 }
 
 .seat-demo.available {
-    background-color: #252A32;
-    border: 1px solid #3A404A;
+    background-color: #eeeeee;
+    border: 1px solid #d1d5db;
 }
 
 .seat-demo.selected {
@@ -905,7 +980,7 @@ footer {
 }
 
 .seat-demo.booked {
-    background-color: #3A3D44;
+    background-color: #d1d5db;
 }
 
 /*------------------------Footer-------------------------*/
@@ -918,11 +993,11 @@ footer {
 }
 
 .seat-footer p {
-    color: #9CA3AF;
+    color: #666666;
 }
 
 .seat-footer strong {
-    color: white;
+    color: #222222;
 }
 
 #continue-seat-btn {
@@ -973,7 +1048,7 @@ footer {
     align-items: center;
     justify-content: center;
     background-color: rgba(0, 0, 0, 0.7);
-    z-index: 1000;
+    z-index: 10000;
     padding: 20px;
 }
 
@@ -984,8 +1059,9 @@ footer {
 .alert-box {
     width: 100%;
     max-width: 400px;
-    background-color: #181B21;
-    border: 1px solid #30343C;
+    background-color: #ffffff;
+    color: #222222;
+    border: 1px solid #e5e7eb;
     border-radius: 16px;
     padding: 30px;
     margin: 25px auto;
@@ -1010,10 +1086,11 @@ footer {
 .alert-box h3 {
     font-size: 30px;
     margin-bottom: 10px;
+    color: #222222;
 }
 
 .alert-box p {
-    color: #9CA3AF;
+    color: #666666;
     line-height: 1.5;
     margin-bottom: 25px;
 }
@@ -1059,10 +1136,12 @@ footer {
 .auth-card{
     width: 100%;
     max-width: 450px;
-    background-color: #181B21;
-    border: 1px solid #272A31;
+    background-color: #ffffff;
+    color: #222222;
+    border: 1px solid #e5e7eb;
     border-radius: 16px;
     padding: 35px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
 .auth-heading{
@@ -1072,11 +1151,12 @@ footer {
 
 .auth-heading h1{
     font-size: 30px;
+    color: #222222;
 }
 
 .auth-heading p{
     margin-top: 10px;
-    color: #9CA3AF;
+    color: #666666;
 }
 
 .auth-input{
@@ -1088,16 +1168,16 @@ footer {
 
 .auth-input label{
     font-size: 14px;
-    color: #9CA3AF;
+    color: #555555;
 }
 
 .auth-input input{
     width: 100%;
     padding: 13px 15px;
     border-radius: 8px;
-    border: 1px solid #30343C;
-    background-color: #0F1115;
-    color: #F5F5F5;
+    border: 1px solid #d1d5db;
+    background-color: #f9fafb;
+    color: #111111;
     outline: none;
 }
 
@@ -1131,7 +1211,7 @@ footer {
 .auth-switch{
     margin-top: 25px;
     text-align: center;
-    color: #9CA3AF;
+    color: #666666;
     font-size: 14px;
 }
 
@@ -1156,7 +1236,7 @@ footer {
 
 #login-form .input-group label{
    font-size: 14px;
-   color: #D1D5DB;
+   color: #555555;
    margin-bottom: 5px;
 }
 
@@ -1197,7 +1277,7 @@ footer {
 .auth-link{
     margin-top: 25px;
     text-align: center;
-    color: #9CA3AF;
+    color: #666666;
     font-size: 14px;
 }
 
@@ -1249,7 +1329,7 @@ footer {
 
 .passenger-section .section-heading p{
     font-size: 15px;
-    color: #9CA3AF;
+    color: #D1D5DB;
 }
 
 /*-------------------------Bus infomation-----------------------------*/
@@ -1259,10 +1339,12 @@ footer {
 }
 
 .passenger-card{
-    background-color: #181B21;
-    border: 1px solid #272A31;
+    background-color: #ffffff;
+    color: #222222;
+    border: 1px solid #e5e7eb;
     border-radius: 12px;
     padding: 25px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
 .passenger-card-header{
@@ -1273,13 +1355,14 @@ footer {
 
 .passenger-card-header h3{
     font-size: 18px;
+    color: #222222;
 }
 
 .passenger-seat{
     padding: 6px 12px;
     border-radius: 20px;
-    background-color: #272A31;
-    color: #D1D5DB;
+    background-color: #eeeeee;
+    color: #555555;
     font-size: 13px;
 }
 
@@ -1298,7 +1381,7 @@ footer {
 }
 
 .passenger-input-group label{
-    color: #D1D5DB;
+    color: #555555;
     font-size: 14px;
 }
 
@@ -1306,17 +1389,17 @@ footer {
 .passenger-input-group input select{
     width: 100%;
     padding: 12px 13px;
-    border: 1px solid #30343C;
+    border: 1px solid #d1d5db;
     border-radius: 8px;
-    background-color: #0F1115;
-    color: #f5f5f5;
+    background-color: #f9fafb;
+    color: #111111;
     outline: none;
     font-size: 14px;
     transition: 0.3s;
 }
 
 .passenger-input-group input::placeholder{
-    color: #6B7280;
+    color: #888888;
 }
 
 .passenger-input-group input:focus,
@@ -1349,12 +1432,12 @@ footer {
 }
 
 #back-passenger-btn{
-    background-color: #272A31;
-    color: #D1D5DB;
+    background-color: #eeeeee;
+    color: #555555;
 }
 
 #back-passenger-btn:hover{
-    background-color: #343842;
+    background-color: #dddddd;
 }
 
 #continue-passenger-btn{
@@ -1441,7 +1524,7 @@ footer {
 }
 
 .my-bookings .section-heading p {
-    color: #ffffff;
+    color: #D1D5DB;
     font-size: 18px;
 }
 
